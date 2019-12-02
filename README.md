@@ -1,9 +1,8 @@
 # deploy_machine_learning
 
-https://github.com/karanmurthy7/machine-learning-flask-example
 
 machine-learning-flask-example
-This project demonstrates how to train and deploy a simple model. Using a pima indians diabetes dataset, I create a model that can predict whether or not a patient has diabetes, based on certain diagnostic measurements included in the dataset. Other applications can use this model through a single route server. This project is composed of two python files: a model training script and the web server.
+This project demonstrates how to train and deploy a simple model. I use a model that can predict whether or not a patient has diabetes, based on certain diagnostic measurements included in the dataset from https://github.com/karanmurthy7/machine-learning-flask-example. This project is composed of 5 python files: dataset, model, server, request and flask_app.
 
 # model
 diabetes-classification-model.py trains and saves the model to the disk.
@@ -14,5 +13,33 @@ server.py contains all the requiered for flask and to manage APIs.
 # request
 request.py contains the python code to process POST request to server.
 
+# Flask_app
+flask_app.py contains the python code as modified server in pythonanywhere.com
+
 # deploy model in pythonanywhere.com
-I deployed machine learning model about diabetes prediction into pythonanywhere.com.
+I the deployed machine learning model into pythonanywhere.com and test it using postman.
+To deploy the model, run the diabetes-classification-model.py first in local to get the model (log_reg_model.pkl). upload the model along with flask_app.pkl into /home/user/mysite  
+
+![picture](https://github.com/rafifas/deploy_machine_learning/blob/master/directory_in_pythonanywhere.PNG)
+![picture](https://github.com/rafifas/deploy_machine_learning/blob/master/pythonanywhere_files.PNG)
+
+Try the deployed model with postman. Open postman and insert your pythonanywhere URL and test your model by inputing data as the following example
+
+![picture](https://github.com/rafifas/deploy_machine_learning/blob/master/postman_input_example.PNG)
+
+If you want to try how the model work, you can use my url in the postman and input the following data:
+
+Url: 
+http://rafif.pythonanywhere.com/api
+
+Input example:
+{
+    "pregnancy":6,
+    "glucoes":148,
+    "bloodpres":72,
+    "skin":35,
+    "insulin":0,
+    "bmi":33.6,
+    "diabetesPedi":0.627,
+    "age":50   
+}
